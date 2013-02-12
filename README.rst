@@ -30,13 +30,13 @@ Usage
     1. Install application
     2. syncdb
     3. add url(r'^auth/google/', include('google_oauth.urls')), to your urls.
-    4. set the following settings in your settings.py file (
-        GCAL_SCOPE = 'https://www.googleapis.com/auth/calendar'
-        GCAL_REDIRECT_URL
-        GCAL_CLIENT_ID
-        GCAL_SECRET_ID
-        GCAL_SUCCESS_URL
-        GCAL_ACCESS_TYPE
+    4. set the following settings in your settings.py file 
+        1. GCAL_SCOPE = 'https://www.googleapis.com/auth/calendar'
+        2. GCAL_REDIRECT_URL
+        3. GCAL_CLIENT_ID
+        4. GCAL_SECRET_ID
+        5. GCAL_SUCCESS_URL
+        6. GCAL_ACCESS_TYPE
 
 
 www.rochapps.com
