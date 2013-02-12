@@ -35,7 +35,7 @@ class AuthCredentials(LoginRequiredMixin, View):
         
     def get(self, request, *args, **kwargs):
         """
-        
+            redirects to authentication page or success page
         """
         if self.validate_credentials():
             success_url = getattr(settings, 'GCAL_SUCCESS_URL', '/')
@@ -53,7 +53,7 @@ class AuthCredentials(LoginRequiredMixin, View):
         
     def get_credentials(self):
         """
-            gets the credentials from the Storage
+            gets credentials from Storage
         """
         storage = Storage(
             Credentials, 
@@ -74,7 +74,7 @@ class AuthCredentials(LoginRequiredMixin, View):
                 client_secret=settings.GCAL_SECRET_ID,
                 redirect_uri=settings.GCAL_REDIRECT_URL,
                 scope= settings.GCAL_SCOPE,
-                access_type = 'offline',
+                access_type = settings.GCAL_ACCESS_TYPE,
                 approval_prompt = 'force',
             )
             self._flow = flow
@@ -98,7 +98,7 @@ class AuthCredentials(LoginRequiredMixin, View):
             validates if the credentials are valid
         """
         credentials = self.get_credentials()
-        return (credentials or not(credentials.invalid))
+        return (credentials and not(credentials.invalid))
         
 
 class AuthReturnView(LoginRequiredMixin, View):
@@ -140,7 +140,7 @@ class AuthReturnView(LoginRequiredMixin, View):
             stores credentials in the Credentials Model
         """
         flow = self.get_flow()
-        credential = flow.step2_exchange(self.request.REQUEST)
+        credential = flow.flow.step2_exchange(self.request.REQUEST)
         storage = Storage(
             Credentials, 
             'id', 
