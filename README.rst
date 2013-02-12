@@ -3,7 +3,7 @@ Google oauth 2.0
 ==========
 
 google_oauth helps you authenticate your application, and ask for user permissions.
-Once a user has granted access to your applications, his credentials are stored 
+Once a user has granted access to your application, his credentials are stored 
 in the database for later retrival. 
 
 You can check for credentials like this:
@@ -20,8 +20,8 @@ You can check for credentials like this:
         http = credential.authorize(http)
         service = build('calendar', 'v3', http=http)
         
-Requirement
-===========
+Requirements
+============
     1. google-api-python-client
     2. mock (for testing only)
 
