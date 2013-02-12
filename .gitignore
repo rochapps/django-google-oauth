@@ -1,0 +1,4 @@
+*.pyc
+manage.py
+goauth
+google
