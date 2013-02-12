@@ -3,7 +3,7 @@ setup(
     name = "django-google-oauth",
     packages = ["google_oauth", ],
     version = "0.5.0",
-    description = "A Django application to authenticate your application, ask for user permisioin and save credentials into the database for use with google api v3.",
+    description = "A Django application to authenticate your application, ask for user permissions and save credentials into the database for use with google api v3.",
     author = "RochApps, LLC",
     author_email = "info@rochapps.com",
     url = "http://rochapps.com/",
